@@ -1,0 +1,3 @@
+192.168.0.105 ansible_connection=ssh ansible_user=<yourUsername>
+192.168.0.106 ansible_connection=ssh ansible_user=<yourUsername>
+192.168.0.107 ansible_connection=ssh ansible_user=<yourUsername>

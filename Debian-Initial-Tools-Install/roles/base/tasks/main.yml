@@ -1,0 +1,19 @@
+---
+  - name: Upgrade distribution
+    apt: update_cache=yes upgrade=yes cache_valid_time=1800
+
+  - name: Install base packages
+    apt: pkg={{ item }} state=latest
+    loop:
+      - curl
+      - tmux
+      - git
+      - vim
+      - htop
+      - python-pip
+      - nginx
+
+  - name: Stop nginx server
+    service:
+     name: nginx
+     state: stopped

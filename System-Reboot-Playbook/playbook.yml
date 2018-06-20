@@ -1,0 +1,8 @@
+---
+  - hosts: cd-lab
+    become: yes
+    become_method: su
+    become_user: root
+    tasks:
+      - name: stopping systems
+        command: shutdown -r -t now

@@ -1,0 +1,24 @@
+---
+  - pip:
+      name: docker-py
+
+  - name: Check if docker is installed
+    shell: command -v docker
+    register: docker_check
+
+  - name: Download the Docker install script and install it
+    shell: curl -fs https://get.docker.com/index | bash
+    shell: usermod -aG docker $(whoami)
+    when: docker_check.stdout != '/usr/bin/docker'
+
+
+  #   get_url:
+  #     url: "https://get.docker.com/index"
+  #     dest: "tmp/index"
+  #
+  # - name: Execute the install.
+  #   command: cat /tmp/index
+  #   register: result
+  #
+  # - command: bash /tmp/index
+  #   when: result is succeeded

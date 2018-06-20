@@ -1,0 +1,10 @@
+---
+  - hosts: cd-lab
+    become: yes
+    become_method: su
+    become_user: root
+    roles:
+      - role: base
+        tags: "base"
+      - role: docker
+        tags: "docker"
